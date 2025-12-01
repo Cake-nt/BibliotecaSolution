@@ -1,0 +1,44 @@
+﻿@model Biblioteca.Core.Models.Libro
+
+@{
+    ViewData["Title"] = "Detalles del Libro";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="card-title mb-0">@Model.Titulo</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Autor:</strong> @Model.Autor</p>
+                            <p><strong>ISBN:</strong> @Model.ISBN</p>
+                            <p><strong>Género:</strong> @Model.Genero</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Año Publicación:</strong> @Model.AnioPublicacion</p>
+                            <p><strong>Editorial:</strong> @Model.Editorial</p>
+                            <p><strong>Categoría:</strong> @(Model.Categoria?.Nombre ?? "Sin categoría")</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <p>
+                                <strong>Ejemplares Disponibles:</strong>
+                                <span class="badge bg-success">@Model.EjemplaresDisponibles de @Model.EjemplaresTotales</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="/Libros/Edit/@Model.Id" class="btn btn-warning">Editar</a>
+                    <a href="/Libros" class="btn btn-secondary">Volver al Listado</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

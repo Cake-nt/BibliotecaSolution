@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="text-danger">Error</h1>
+            <h2 class="text-danger">Ocurrió un error al procesar su solicitud.</h2>
+
+            <div class="mt-4">
+                <p>Lo sentimos, ha ocurrido un error inesperado en el sistema.</p>
+                <p>Por favor, intente nuevamente o contacte al administrador si el problema persiste.</p>
+            </div>
+
+            <div class="mt-4">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                    Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

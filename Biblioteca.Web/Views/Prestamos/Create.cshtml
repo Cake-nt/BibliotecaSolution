@@ -1,0 +1,64 @@
+﻿@model Biblioteca.Core.Models.Prestamo
+@{
+    ViewData["Title"] = "Nuevo Préstamo";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Libro</label>
+                <select asp-for="LibroId" class="form-control" required>
+                    <option value="">Seleccionar Libro</option>
+                    @if (ViewBag.Libros != null)
+                    {
+                        foreach (var libro in ViewBag.Libros)
+                        {
+                            <option value="@libro.Id">@libro.Titulo - @libro.Autor</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="LibroId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Socio</label>
+                <select asp-for="SocioId" class="form-control" required>
+                    <option value="">Seleccionar Socio</option>
+                    @if (ViewBag.Socios != null)
+                    {
+                        foreach (var socio in ViewBag.Socios)
+                        {
+                            <option value="@socio.Id">@socio.NombreCompleto</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="SocioId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FechaDevolucionPrevista" class="form-label">Fecha Devolución</label>
+                <input asp-for="FechaDevolucionPrevista" class="form-control" type="date"
+                       value="@DateTime.Now.AddDays(15).ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="FechaDevolucionPrevista" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrar Préstamo</button>
+                <a href="/Prestamos" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

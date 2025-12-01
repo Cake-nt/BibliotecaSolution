@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Biblioteca.Business/Biblioteca.Business.csproj" />
+  <Project Path="Biblioteca.Core/Biblioteca.Core.csproj" />
+  <Project Path="Biblioteca.Data/Biblioteca.Data.csproj" />
+  <Project Path="Biblioteca.Web/Biblioteca.Web.csproj" Id="b0250903-0af8-47a0-ba68-dbbcc0fd77c4" />
+  <Project Path="Biblioteca.WindowsForms1/Biblioteca.WindowsForms1.csproj" Id="d9a50404-82e8-411b-a69b-8da68ccfa9d8" />
+</Solution>

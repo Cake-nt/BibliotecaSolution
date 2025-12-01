@@ -1,0 +1,40 @@
+﻿@model Biblioteca.Core.Models.Prestamo
+
+@{
+    ViewData["Title"] = "Detalles del Préstamo";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Código Préstamo</dt>
+        <dd class="col-sm-10">@Model.CodigoPrestamo</dd>
+
+        <dt class="col-sm-2">Libro</dt>
+        <dd class="col-sm-10">@Model.Libro.Titulo</dd>
+
+        <dt class="col-sm-2">Socio</dt>
+        <dd class="col-sm-10">@Model.Socio.NombreCompleto</dd>
+
+        <dt class="col-sm-2">Fecha Préstamo</dt>
+        <dd class="col-sm-10">@Model.FechaPrestamo.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Devolución Prevista</dt>
+        <dd class="col-sm-10">@Model.FechaDevolucionPrevista.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Devolución Real</dt>
+        <dd class="col-sm-10">@(Model.FechaDevolucionReal?.ToString("dd/MM/yyyy") ?? "Pendiente")</dd>
+
+        <dt class="col-sm-2">Estado</dt>
+        <dd class="col-sm-10">
+            <span class="badge @(Model.Estado == "Activo" ? "bg-success" : "bg-secondary")">
+                @Model.Estado
+            </span>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
+</div>

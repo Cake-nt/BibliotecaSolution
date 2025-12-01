@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Biblioteca.Core.Models.Prestamo>
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Préstamos";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mb-3">
+    <a href="/Prestamos/Create" class="btn btn-primary">Nuevo Préstamo</a>
+    <a href="/Prestamos/Activos" class="btn btn-success">Activos</a>
+    <a href="/Prestamos/Vencidos" class="btn btn-warning">Vencidos</a>
+    <a href="/Prestamos" class="btn btn-secondary">Todos</a>
+</div>
+
+<table class="table table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th>Código</th>
+            <th>Libro</th>
+            <th>Socio</th>
+            <th>Fecha Préstamo</th>
+            <th>Devolución</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><strong>@item.CodigoPrestamo</strong></td>
+                <td>@item.Libro.Titulo</td>
+                <td>@item.Socio.NombreCompleto</td>
+                <td>@item.FechaPrestamo.ToString("dd/MM/yyyy")</td>
+                <td>@item.FechaDevolucionPrevista.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (item.Estado == "Activo")
+                    {
+                        <span class="badge bg-success">Activo</span>
+                    }
+                    else if (item.Estado == "Vencido")
+                    {
+                        <span class="badge bg-danger">Vencido</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Devuelto</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Estado == "Activo")
+                    {
+                        <form asp-action="Devolver" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Devolver</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Finalizado</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

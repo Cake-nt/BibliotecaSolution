@@ -1,0 +1,39 @@
+﻿@model Biblioteca.Core.Models.Libro
+
+@{
+    ViewData["Title"] = "Eliminar Libro";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="card-title mb-0">Confirmar Eliminación</h2>
+                </div>
+                <div class="card-body">
+                    <h4>¿Está seguro que desea eliminar este libro?</h4>
+
+                    <div class="alert alert-warning mt-3">
+                        <strong>Libro a eliminar:</strong><br>
+                        <strong>@Model.Titulo</strong><br>
+                        por <strong>@Model.Autor</strong>
+                    </div>
+
+                    <div class="mt-3">
+                        <p><strong>ISBN:</strong> @Model.ISBN</p>
+                        <p><strong>Ejemplares disponibles:</strong> @Model.EjemplaresDisponibles de @Model.EjemplaresTotales</p>
+                    </div>
+
+                    <form action="/Libros/Delete/@Model.Id" method="post" class="mt-4">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <a href="/Libros" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

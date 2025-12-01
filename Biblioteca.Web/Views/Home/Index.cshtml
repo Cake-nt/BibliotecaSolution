@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Inicio - Biblioteca";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido al Sistema de Biblioteca</h1>
+    <p>Sistema integral de gestión de libros, socios y préstamos.</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">📚 Libros</h5>
+                    <p class="card-text">Gestiona el catálogo completo de libros.</p>
+                    <a href="/Libros" class="btn btn-primary">Ver Libros</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">👥 Socios</h5>
+                    <p class="card-text">Administra los socios de la biblioteca.</p>
+                    <a href="/Socios" class="btn btn-primary">Ver Socios</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">🔄 Préstamos</h5>
+                    <p class="card-text">Control de préstamos y devoluciones.</p>
+                    <a href="/Prestamos" class="btn btn-primary">Ver Préstamos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">📊 Estadísticas Rápidas</h5>
+                    <p class="card-text">
+                        <strong>Libros en catálogo:</strong> 3<br>
+                        <strong>Socios registrados:</strong> 2<br>
+                        <strong>Préstamos activos:</strong> 0
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">🚀 Acciones Rápidas</h5>
+                    <div class="d-grid gap-2">
+                        <a href="/Libros/Create" class="btn btn-outline-primary">Agregar Nuevo Libro</a>
+                        <a href="/Socios/Create" class="btn btn-outline-primary">Registrar Nuevo Socio</a>
+                        <a href="/Prestamos/Create" class="btn btn-outline-primary">Realizar Préstamo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

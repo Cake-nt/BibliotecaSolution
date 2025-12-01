@@ -1,0 +1,77 @@
+﻿@model Biblioteca.Core.Models.Libro
+
+@{
+    ViewData["Title"] = "Editar Libro";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Titulo" class="form-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Autor" class="form-label">Autor</label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ISBN" class="form-label">ISBN</label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Genero" class="form-label">Género</label>
+                <input asp-for="Genero" class="form-control" />
+                <span asp-validation-for="Genero" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AnioPublicacion" class="form-label">Año Publicación</label>
+                <input asp-for="AnioPublicacion" class="form-control" />
+                <span asp-validation-for="AnioPublicacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Editorial" class="form-label">Editorial</label>
+                <input asp-for="Editorial" class="form-control" />
+                <span asp-validation-for="Editorial" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EjemplaresTotales" class="form-label">Ejemplares Totales</label>
+                <input asp-for="EjemplaresTotales" class="form-control" />
+                <span asp-validation-for="EjemplaresTotales" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EjemplaresDisponibles" class="form-label">Ejemplares Disponibles</label>
+                <input asp-for="EjemplaresDisponibles" class="form-control" />
+                <span asp-validation-for="EjemplaresDisponibles" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="/Libros" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
